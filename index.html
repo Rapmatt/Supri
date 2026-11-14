@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Supri</title>
+<link rel="manifest" href="manifest.webmanifest" />
+<meta name="theme-color" content="#4f46e5" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Supri" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="icon" href="favicon.png" />
+<style>*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.sticky{position:sticky}.bottom-0{bottom:0}.bottom-24{bottom:6rem}.left-0{left:0}.left-1\/2{left:50%}.right-0{right:0}.z-50{z-index:50}.col-span-1{grid-column:span 1/span 1}.m-3{margin:.75rem}.mx-0\.5{margin-left:.125rem;margin-right:.125rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mt-1{margin-top:.25rem}.block{display:block}.flex{display:flex}.table{display:table}.grid{display:grid}.hidden{display:none}.w-14{width:3.5rem}.w-16{width:4rem}.w-40{width:10rem}.w-full{width:100%}.max-w-2xl{max-width:42rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-between{justify-content:space-between}.gap-2{gap:.5rem}.space-y-1>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.25rem*var(--tw-space-y-reverse))}.space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem*var(--tw-space-y-reverse))}.space-y-5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem*var(--tw-space-y-reverse))}.divide-y>:not([hidden])~:not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px*(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px*var(--tw-divide-y-reverse))}.divide-slate-100>:not([hidden])~:not([hidden]){--tw-divide-opacity:1;border-color:rgb(241 245 249/var(--tw-divide-opacity,1))}.self-center{align-self:center}.overflow-auto{overflow:auto}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.whitespace-nowrap{white-space:nowrap}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-md{border-radius:.375rem}.rounded-xl{border-radius:.75rem}.rounded-b-lg{border-bottom-right-radius:.5rem;border-bottom-left-radius:.5rem}.rounded-t-lg{border-top-left-radius:.5rem;border-top-right-radius:.5rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-b-2{border-bottom-width:2px}.border-t{border-top-width:1px}.border-indigo-200{--tw-border-opacity:1;border-color:rgb(199 210 254/var(--tw-border-opacity,1))}.border-indigo-600{--tw-border-opacity:1;border-color:rgb(79 70 229/var(--tw-border-opacity,1))}.border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249/var(--tw-border-opacity,1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240/var(--tw-border-opacity,1))}.border-slate-300{--tw-border-opacity:1;border-color:rgb(203 213 225/var(--tw-border-opacity,1))}.border-slate-50{--tw-border-opacity:1;border-color:rgb(248 250 252/var(--tw-border-opacity,1))}.bg-amber-100{--tw-bg-opacity:1;background-color:rgb(254 243 199/var(--tw-bg-opacity,1))}.bg-amber-600{--tw-bg-opacity:1;background-color:rgb(217 119 6/var(--tw-bg-opacity,1))}.bg-emerald-100{--tw-bg-opacity:1;background-color:rgb(209 250 229/var(--tw-bg-opacity,1))}.bg-emerald-600{--tw-bg-opacity:1;background-color:rgb(5 150 105/var(--tw-bg-opacity,1))}.bg-emerald-700{--tw-bg-opacity:1;background-color:rgb(4 120 87/var(--tw-bg-opacity,1))}.bg-indigo-600{--tw-bg-opacity:1;background-color:rgb(79 70 229/var(--tw-bg-opacity,1))}.bg-indigo-700{--tw-bg-opacity:1;background-color:rgb(67 56 202/var(--tw-bg-opacity,1))}.bg-rose-50{--tw-bg-opacity:1;background-color:rgb(255 241 242/var(--tw-bg-opacity,1))}.bg-rose-600{--tw-bg-opacity:1;background-color:rgb(225 29 72/var(--tw-bg-opacity,1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity,1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252/var(--tw-bg-opacity,1))}.bg-slate-500{--tw-bg-opacity:1;background-color:rgb(100 116 139/var(--tw-bg-opacity,1))}.bg-slate-700{--tw-bg-opacity:1;background-color:rgb(51 65 85/var(--tw-bg-opacity,1))}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42/var(--tw-bg-opacity,1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.p-3{padding:.75rem}.p-4{padding:1rem}.p-8{padding:2rem}.px-1{padding-left:.25rem;padding-right:.25rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-0\.5{padding-top:.125rem;padding-bottom:.125rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.pb-28{padding-bottom:7rem}.pr-2{padding-right:.5rem}.text-left{text-align:left}.text-center{text-align:center}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.leading-tight{line-height:1.25}.text-amber-700{--tw-text-opacity:1;color:rgb(180 83 9/var(--tw-text-opacity,1))}.text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87/var(--tw-text-opacity,1))}.text-indigo-200{--tw-text-opacity:1;color:rgb(199 210 254/var(--tw-text-opacity,1))}.text-indigo-600{--tw-text-opacity:1;color:rgb(79 70 229/var(--tw-text-opacity,1))}.text-indigo-700{--tw-text-opacity:1;color:rgb(67 56 202/var(--tw-text-opacity,1))}.text-rose-600{--tw-text-opacity:1;color:rgb(225 29 72/var(--tw-text-opacity,1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85/var(--tw-text-opacity,1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.opacity-0{opacity:0}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-lg,.shadow-md{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgba(0,0,0,.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.active\:bg-emerald-700:active{--tw-bg-opacity:1;background-color:rgb(4 120 87/var(--tw-bg-opacity,1))}</style>
+<style>
+  input, select { font-size: 16px; }
+  .sticky0 { position: sticky; top: 0; z-index: 10; }
+  body { -webkit-tap-highlight-color: transparent; }
+</style>
+</head>
+<body class="bg-slate-100 text-slate-800">
+
+<!-- Cabeçalho -->
+<header class="sticky0 bg-indigo-700 text-white px-4 py-3 shadow-md flex items-center justify-between">
+  <div>
+    <h1 id="hdrNome" class="text-lg font-bold leading-tight">Supri</h1>
+    <p class="text-indigo-200 text-[11px]">Abasteça sem adivinhação · funciona offline</p>
+  </div>
+  <button onclick="instalarPrompt()" id="btnInstalar"
+          class="hidden text-xs bg-white text-indigo-700 font-semibold px-3 py-1.5 rounded-lg">
+    ⬇️ Instalar
+  </button>
+</header>
+
+<!-- Abas -->
+<nav class="sticky0 bg-white border-b flex overflow-x-auto text-sm" style="top:56px">
+  <button data-tab="req" class="tabbtn flex-1 whitespace-nowrap px-4 py-3 font-semibold">📋 Requisição</button>
+  <button data-tab="receb" class="tabbtn flex-1 whitespace-nowrap px-4 py-3 font-semibold">📥 Recebidas</button>
+  <button data-tab="estoque" class="tabbtn flex-1 whitespace-nowrap px-4 py-3 font-semibold">📦 Estoque</button>
+  <button data-tab="cadastro" class="tabbtn flex-1 whitespace-nowrap px-4 py-3 font-semibold">⚙️ Cadastro</button>
+</nav>
+
+<main class="max-w-2xl mx-auto pb-28">
+  <!-- ===== REQUISIÇÃO ===== -->
+  <section data-view="req">
+    <div class="bg-white m-3 p-3 rounded-xl shadow-sm space-y-2">
+      <div><label class="block text-xs font-semibold text-slate-500 mb-1">Data</label>
+        <input id="data" type="date" class="w-full border border-slate-300 rounded-lg px-3 py-2" /></div>
+      <div class="grid grid-cols-2 gap-2">
+        <div><label class="block text-xs font-semibold text-slate-500 mb-1">Resp. Manhã</label>
+          <input id="respManha" type="text" placeholder="Nome" class="w-full border border-slate-300 rounded-lg px-3 py-2" /></div>
+        <div><label class="block text-xs font-semibold text-slate-500 mb-1">Resp. Tarde</label>
+          <input id="respTarde" type="text" placeholder="Nome" class="w-full border border-slate-300 rounded-lg px-3 py-2" /></div>
+      </div>
+      <input id="buscaReq" type="text" placeholder="🔎 Buscar item..."
+             class="w-full border border-slate-300 rounded-lg px-3 py-2" oninput="renderReq()" />
+      <p class="text-[11px] text-slate-400"><b>Est.</b> = o que há no setor · <b>M</b> = manhã · <b>T</b> = tarde. Deixe em branco o que não pedir.</p>
+    </div>
+    <div id="listaReq"></div>
+  </section>
+
+  <!-- ===== RECEBIDAS ===== -->
+  <section data-view="receb" class="hidden p-3">
+    <div id="listaReqs" class="space-y-2 mb-3"></div>
+    <div id="detalhe" class="bg-white rounded-xl shadow-sm p-4 text-slate-400 text-center text-sm">
+      Toque numa requisição acima para conferir e dar baixa.
+    </div>
+  </section>
+
+  <!-- ===== ESTOQUE ===== -->
+  <section data-view="estoque" class="hidden p-3">
+    <div class="flex gap-2 mb-3">
+      <input id="buscaEstoque" placeholder="🔎 Buscar produto..." class="flex-1 border border-slate-300 rounded-lg px-3 py-2" oninput="renderEstoque()" />
+      <button onclick="imprimirEstoque()" class="bg-slate-700 text-white font-semibold px-3 rounded-lg text-sm">🖨️</button>
+    </div>
+    <div id="estoque"></div>
+  </section>
+
+  <!-- ===== CADASTRO ===== -->
+  <section data-view="cadastro" class="hidden p-3 space-y-5">
+    <!-- Nome do estabelecimento -->
+    <div class="bg-white p-3 rounded-xl shadow-sm">
+      <label class="block text-xs font-semibold text-slate-500 mb-1">Nome do estabelecimento (aparece no topo e nas impressões)</label>
+      <div class="flex gap-2">
+        <input id="nomeEmpresa" type="text" class="flex-1 border border-slate-300 rounded-lg px-3 py-2" />
+        <button onclick="salvarNome()" class="bg-indigo-600 text-white font-semibold px-4 rounded-lg">Salvar</button>
+      </div>
+    </div>
+
+    <!-- Categorias -->
+    <div class="bg-white p-3 rounded-xl shadow-sm">
+      <h3 class="font-bold text-slate-700 mb-2">Categorias</h3>
+      <div class="flex gap-2 mb-2">
+        <input id="novaCat" type="text" placeholder="Nova categoria" class="flex-1 border border-slate-300 rounded-lg px-3 py-2" />
+        <button onclick="addCategoria()" class="bg-emerald-600 text-white font-semibold px-4 rounded-lg">+ Add</button>
+      </div>
+      <div id="listaCats" class="space-y-1"></div>
+    </div>
+
+    <!-- Produtos -->
+    <div class="bg-white p-3 rounded-xl shadow-sm">
+      <h3 class="font-bold text-slate-700 mb-2">Produtos</h3>
+      <div class="grid grid-cols-1 gap-2 mb-2">
+        <input id="prodNome" type="text" placeholder="Nome do produto" class="border border-slate-300 rounded-lg px-3 py-2" />
+        <div class="grid grid-cols-3 gap-2">
+          <select id="prodCat" class="border border-slate-300 rounded-lg px-2 py-2 col-span-1"></select>
+          <input id="prodEst" type="number" inputmode="decimal" placeholder="Estoque" class="border border-slate-300 rounded-lg px-2 py-2" />
+          <input id="prodMin" type="number" inputmode="decimal" placeholder="Mínimo" class="border border-slate-300 rounded-lg px-2 py-2" />
+        </div>
+        <button onclick="addProduto()" class="bg-emerald-600 text-white font-semibold py-2 rounded-lg">+ Adicionar produto</button>
+      </div>
+      <input id="buscaCad" type="text" placeholder="🔎 Filtrar produtos..." class="w-full border border-slate-300 rounded-lg px-3 py-2 mb-2" oninput="renderCadProdutos()" />
+      <div id="listaCadProd" class="divide-y divide-slate-100"></div>
+    </div>
+
+    <!-- Dados / backup -->
+    <div class="bg-white p-3 rounded-xl shadow-sm space-y-2">
+      <h3 class="font-bold text-slate-700">Dados</h3>
+      <div class="flex flex-wrap gap-2">
+        <button onclick="exportar()" class="bg-indigo-600 text-white font-semibold px-3 py-2 rounded-lg text-sm">⬇️ Exportar backup</button>
+        <label class="bg-slate-700 text-white font-semibold px-3 py-2 rounded-lg text-sm cursor-pointer">
+          ⬆️ Importar backup<input type="file" accept="application/json" class="hidden" onchange="importar(event)" /></label>
+        <button onclick="carregarExemplo()" class="bg-amber-600 text-white font-semibold px-3 py-2 rounded-lg text-sm">Recarregar itens Sushi Rio</button>
+        <button onclick="limparTudo()" class="bg-rose-600 text-white font-semibold px-3 py-2 rounded-lg text-sm">Apagar tudo</button>
+      </div>
+      <p class="text-[11px] text-slate-400">Os dados ficam só neste aparelho. Faça backup de vez em quando — se trocar de celular ou limpar o navegador, você reimporta o arquivo.</p>
+    </div>
+  </section>
+</main>
+
+<!-- Botão flutuante salvar (só na aba Requisição) -->
+<div id="rodapeReq" class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 p-3">
+  <div class="max-w-2xl mx-auto flex gap-2">
+    <button onclick="imprimirReq()" class="shrink-0 bg-slate-700 text-white font-bold px-4 py-3 rounded-xl shadow-lg">🖨️ Imprimir</button>
+    <button onclick="salvarReq()" class="flex-1 bg-emerald-600 active:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow-lg">✅ Salvar requisição</button>
+  </div>
+</div>
+
+<div id="toast" class="fixed bottom-24 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-4 py-2 rounded-lg text-sm shadow-lg opacity-0 transition pointer-events-none z-50"></div>
+
+<script>
+const EXEMPLO = {"PRODUTOS JAPONESES": ["Ajinomoto", "Arroz Sushi - 5kg", "Banchá - Pacote 200gr", "Espaguete Nissim - Um", "Gengibre em conserva - Cx", "Gergelim Branco - 1kg", "Gergelim Preto - 1kg", "Gás De Maçarico - lata", "Hashi - pacote com 100un", "Hondashi - 500gr", "Missô - 1kg", "Nori - Pacote 50 folhas", "Penne", "Sakê Cozinha - BB 5 litros", "Shoyo - 20 litros", "Sudare / Moedor De Ger.", "Tonkatsu - BB 5 litros", "Vinagre para Sushi - 5Lt", "Wassabi - 1kg", "Óleo De Gergelim - 1Lt", "Caldo de Legumes - 1Kg", "Castanha de cajú picada", "Molho Agridoce - 5Lt", "Molho Tonkatsu - 5Lt", "Gengibre em calda - 1,250Lt"], "EMBALAGENS": ["Embalagem Mei-105 250ml", "Embalagem Mei-105 500ml", "Embalagem Mei-110 460ml", "Embalagem Mei-160 900ml", "Bandeja Mo90f-2 Funda", "Tampa MO90", "Pote Termico P3 600ml", "Tampa Termico P3 600ml", "Copo Termico 350ml", "Tampa P/copo Termico 35", "Pote Termico Cps 110ml", "Tampa Termico Cps 110ml", "Embalagem Temaki Go908", "Embalagem Oriental Go9", "Pote Shoyo", "Selo / Lacre Pequeno 75m", "Embalagem POKE 750ml", "Sacolas delivery P - pct", "Sacolas delivery G - pct"], "MATERIAL DE LIMPEZA": ["Bobina Média - Un", "Bobina Pequena - Um", "Bobina Grande - Um", "Bombril - Um", "Cloro - BB 5Lt", "Desinfetante - BB 5Lt", "Detergente - Un", "Sanitizante (cloro Hortifruti)", "Esponja - Un", "Fibraco - Un", "Filme Pvc - Un", "Guardanapo Cozinha - Un", "Guardanapo Salão - Un", "Luvas - Cx", "Papel Alumínio - Rolo", "Perfex SUSHIBAR - Un", "Perfex SALÃO - Un", "Rodo - Un", "Sabão Pastoso - Un", "Saco De Lixo 200lts - Un", "Saco De Lixo 40lts - Un", "Saco De Pano - Un", "Sacolas para delivery - Un", "Porta talher - Pct", "Sapólio", "Toalha de papel cozinha - Un", "Touca - Un", "Vassoura - Un", "Álcool - 1Lt", "Álcool Em Gel - BB 5Lt", "Durex delivery - Un", "Etiqueta de Balança - Un", "Lacre sacola delivery - Rolo"], "PRODUTOS MERCEARIA": ["Adoçante Sachet", "Arroz Branco - 1Kg", "Arroz Funcionário - 1Kg", "Azeite E. Virgem - 500ml", "Açúcar - 1Kg", "Açúcar Sachet", "Bifum - Un", "Biscoito Maisena - Un", "Cacau Em Pó - 500g", "Café - 500g", "Caldo Carne - 1Kg", "Caldo Frango - 1Kg", "Castanha Do Pará", "Champignon", "Chantilly - 1Lt", "Chocolate Barra - 2kg", "Chocolate Em Pó - 1Kg", "Copos Desc. Funcionário", "Corante - Un", "Creme De Leite - Un", "Espaguete Cliente - 500g", "Espeto Camarão - Un", "Extrato De Tomate - 4,1Kg", "Farfalle", "Farinha De Trigo - 1Kg", "Farinha Mesa - 1Kg", "Feijão - 1Kg", "Fermento Em Pó - 250g", "Fetuccine - 500g", "Goiabada - Un", "Leite Condensado - Un", "Leite De Côco - 1Lt", "Leite Integral - 1Lt", "Maionese - 3Kg", "Maisena - Un", "Margarina Balde - 14kg", "Milho Lata - Un", "Mostarda - BB 3Kg", "Palito - Cx", "Panko - 1Kg", "Sal - 1Kg", "Sal Sachet", "Somen", "Suco De Maracujá - 500ml", "Tabasco - Un", "Vinagre Branco - 750ml", "Vinhos Cozinha - 1Lt", "Óleo - 14,5kg", "Óleo Composto - 500ml", "Mel - Un", "Espaguete funcionário - 1kg"]};
+const LS = "estoque_app_v1";
+let DB = carregar();
+let abaAtual = "req";
+let reqAberta = null;
+let deferredPrompt = null;
+
+/* ---------- persistência ---------- */
+function estadoVazio() {
+  return { nomeEmpresa: "Supri", categorias: [], produtos: [], requisicoes: [], seq: 1 };
+}
+function carregar() {
+  try { const r = localStorage.getItem(LS); if (r) return JSON.parse(r); } catch (e) {}
+  return estadoInicial();   // 1ª abertura: já vem com o catálogo Sushi Rio 2026
+}
+function estadoInicial() {
+  const db = estadoVazio();
+  for (const [cat, itens] of Object.entries(EXEMPLO)) {
+    const c = { id: db.seq++, nome: cat }; db.categorias.push(c);
+    itens.forEach(nome => db.produtos.push({ id: db.seq++, catId: c.id, nome, estoque: 0, minimo: 0 }));
+  }
+  try { localStorage.setItem(LS, JSON.stringify(db)); } catch (e) {}
+  return db;
+}
+function salvar() { try { localStorage.setItem(LS, JSON.stringify(DB)); } catch (e) {} }
+
+/* ---------- util ---------- */
+function toast(m, c="bg-slate-900"){const t=document.getElementById("toast");t.className=t.className.replace(/bg-\S+/,c);t.textContent=m;t.style.opacity="1";setTimeout(()=>t.style.opacity="0",2600);}
+function fmt(n){n=Number(n)||0;return Number.isInteger(n)?n:n.toFixed(2).replace(".",",");}
+function numv(v){return v===""||v==null?0:Number(String(v).replace(",","."))||0;}
+function uid(){return DB.seq++;}
+function catNome(id){const c=DB.categorias.find(x=>x.id===id);return c?c.nome:"—";}
+function produtosOrdenados(){
+  const ordCat={}; DB.categorias.forEach((c,i)=>ordCat[c.id]=i);
+  return [...DB.produtos].sort((a,b)=>(ordCat[a.catId]-ordCat[b.catId])||a.nome.localeCompare(b.nome));
+}
+function agrupado(filtro){
+  const termo=(filtro||"").trim().toLowerCase();
+  const g={};
+  produtosOrdenados().filter(p=>!termo||p.nome.toLowerCase().includes(termo))
+    .forEach(p=>{(g[p.catId]=g[p.catId]||[]).push(p);});
+  return g;
+}
+
+/* ---------- navegação ---------- */
+function mostrarAba(tab){
+  abaAtual=tab;
+  document.querySelectorAll("[data-view]").forEach(s=>s.classList.toggle("hidden",s.dataset.view!==tab));
+  document.querySelectorAll(".tabbtn").forEach(b=>{
+    const on=b.dataset.tab===tab;
+    b.className="tabbtn flex-1 whitespace-nowrap px-4 py-3 font-semibold "+(on?"text-indigo-700 border-b-2 border-indigo-600":"text-slate-400");
+  });
+  document.getElementById("rodapeReq").classList.toggle("hidden",tab!=="req");
+  if(tab==="req")renderReq();
+  if(tab==="receb")renderReqs();
+  if(tab==="estoque")renderEstoque();
+  if(tab==="cadastro")renderCadastro();
+}
+
+/* ---------- REQUISIÇÃO ---------- */
+function renderReq(){
+  const cont=document.getElementById("listaReq"); cont.innerHTML="";
+  if(!DB.produtos.length){
+    cont.innerHTML=`<p class="text-center text-slate-400 p-8 text-sm">Nenhum produto cadastrado.<br>Vá em <b>⚙️ Cadastro</b> para adicionar, ou use <b>Carregar exemplo</b>.</p>`;return;
+  }
+  const g=agrupado(document.getElementById("buscaReq").value);
+  for(const [cid,prods] of Object.entries(g)){
+    const bloco=document.createElement("section"); bloco.className="mb-4";
+    bloco.innerHTML=`<div class="sticky0 bg-slate-800 text-white px-4 py-2 text-sm font-bold">${catNome(Number(cid))}</div>
+      <div class="flex px-4 py-1 text-[11px] font-semibold text-slate-400 bg-slate-50">
+        <span class="flex-1">Item</span><span class="w-14 text-center">Est.</span><span class="w-14 text-center">M</span><span class="w-14 text-center">T</span></div>`;
+    prods.forEach(p=>{
+      const l=document.createElement("div");
+      l.className="flex items-center px-3 py-2 border-b border-slate-100 bg-white";
+      l.innerHTML=`<span class="flex-1 text-sm pr-2">${p.nome}</span>
+        <input data-pid="${p.id}" data-c="est" type="number" inputmode="decimal" class="w-14 mx-0.5 border border-slate-200 rounded-md py-1 text-center bg-slate-50" />
+        <input data-pid="${p.id}" data-c="m" type="number" inputmode="decimal" class="w-14 mx-0.5 border border-slate-200 rounded-md py-1 text-center" />
+        <input data-pid="${p.id}" data-c="t" type="number" inputmode="decimal" class="w-14 mx-0.5 border border-slate-200 rounded-md py-1 text-center" />`;
+      bloco.appendChild(l);
+    });
+    cont.appendChild(bloco);
+  }
+}
+function coletarReq(){
+  const map={};
+  document.querySelectorAll("#listaReq input").forEach(inp=>{
+    const pid=Number(inp.dataset.pid),c=inp.dataset.c,v=inp.value.trim();
+    if(v==="")return;
+    map[pid]=map[pid]||{pid,est:0,m:0,t:0}; map[pid][c]=numv(v);
+  });
+  return Object.values(map).filter(d=>d.est||d.m||d.t);
+}
+function salvarReq(){
+  const itens=coletarReq();
+  if(!itens.length){toast("Preencha ao menos um item.","bg-amber-600");return;}
+  DB.requisicoes.unshift({id:uid(),data:document.getElementById("data").value,
+    respM:document.getElementById("respManha").value,respT:document.getElementById("respTarde").value,
+    status:"aberta",itens}); salvar();
+  document.querySelectorAll("#listaReq input").forEach(i=>i.value="");
+  toast("✅ Requisição salva! Veja em 📥 Recebidas.","bg-emerald-600");
+}
+
+/* ---------- RECEBIDAS ---------- */
+function renderReqs(){
+  const abertas=DB.requisicoes.filter(r=>r.status==="aberta");
+  const div=document.getElementById("listaReqs");
+  div.innerHTML = !DB.requisicoes.length
+    ? `<p class="text-slate-400 text-sm bg-white p-4 rounded-xl text-center">Nenhuma requisição ainda.</p>`
+    : DB.requisicoes.map(q=>`<button onclick="abrirReq(${q.id})"
+        class="w-full text-left bg-white border ${q.status==='consolidada'?'border-slate-200':'border-indigo-200'} rounded-xl p-3 shadow-sm">
+        <div class="flex justify-between items-center"><span class="font-bold text-indigo-700">Requisição #${q.id}</span>
+        <span class="text-xs ${q.status==='consolidada'?'bg-emerald-100 text-emerald-700':'bg-amber-100 text-amber-700'} px-2 py-0.5 rounded-full">${q.status==='consolidada'?'consolidada':'pendente'}</span></div>
+        <div class="text-xs text-slate-500 mt-1">📅 ${q.data||'—'} · ${q.itens.length} itens · ☀️ ${q.respM||'—'} 🌙 ${q.respT||'—'}</div></button>`).join("");
+}
+function abrirReq(id){
+  reqAberta=id; const req=DB.requisicoes.find(r=>r.id===id); if(!req)return;
+  const linhas=req.itens.map(it=>{
+    const p=DB.produtos.find(x=>x.id===it.pid)||{nome:"(removido)",estoque:0};
+    const cons=it.m+it.t;
+    return `<tr class="border-b border-slate-100"><td class="py-1.5 pr-2">${p.nome}</td>
+      <td class="text-center text-slate-500">${fmt(it.est)}</td><td class="text-center">${fmt(it.m)}</td>
+      <td class="text-center">${fmt(it.t)}</td><td class="text-center font-bold text-indigo-700">${fmt(cons)}</td>
+      <td class="text-center text-slate-400">${fmt(p.estoque)}→${fmt(p.estoque-(req.status==='consolidada'?0:cons))}</td></tr>`;
+  }).join("");
+  const done=req.status==="consolidada";
+  document.getElementById("detalhe").innerHTML=`
+    <div class="flex justify-between items-start mb-3 gap-2">
+      <div class="text-left"><h3 class="text-base font-bold text-slate-800">Requisição #${req.id}</h3>
+        <p class="text-xs text-slate-500">📅 ${req.data||'—'} · ☀️ ${req.respM||'—'} 🌙 ${req.respT||'—'}</p></div>
+      <div class="flex gap-2">
+        <button onclick="imprimirReqPainel(${req.id})" class="bg-slate-700 text-white font-bold px-3 py-2 rounded-lg text-sm">🖨️</button>
+        ${done?`<span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-semibold self-center">✅ Consolidada</span>`
+          :`<button onclick="consolidar(${req.id})" class="bg-emerald-600 text-white font-bold px-4 py-2 rounded-lg text-sm">⬇️ Dar baixa</button>`}
+      </div></div>
+    <div class="overflow-auto"><table class="w-full text-sm"><thead class="text-left text-slate-400 text-xs"><tr>
+      <th class="py-1">Item</th><th class="text-center">Est.</th><th class="text-center">M</th><th class="text-center">T</th>
+      <th class="text-center">M+T</th><th class="text-center">Estoque</th></tr></thead><tbody>${linhas}</tbody></table></div>`;
+}
+function consolidar(id){
+  const req=DB.requisicoes.find(r=>r.id===id); if(!req||req.status==="consolidada")return;
+  if(!confirm("Confirmar baixa? O consumo (M+T) será descontado do estoque."))return;
+  let n=0;
+  req.itens.forEach(it=>{const c=it.m+it.t; if(c<=0)return; const p=DB.produtos.find(x=>x.id===it.pid); if(p){p.estoque=+(p.estoque-c).toFixed(3);n++;}});
+  req.status="consolidada"; salvar();
+  toast(`✅ Baixa feita em ${n} itens.`,"bg-emerald-600");
+  renderReqs(); abrirReq(id);
+}
+
+/* ---------- ESTOQUE ---------- */
+function renderEstoque(){
+  const g=agrupado(document.getElementById("buscaEstoque").value);
+  const div=document.getElementById("estoque");
+  if(!DB.produtos.length){div.innerHTML=`<p class="text-center text-slate-400 p-8 text-sm">Sem produtos. Cadastre em ⚙️ Cadastro.</p>`;return;}
+  div.innerHTML=Object.entries(g).map(([cid,prods])=>`
+    <div class="mb-4"><h3 class="bg-slate-800 text-white px-4 py-2 rounded-t-lg font-bold text-sm">${catNome(Number(cid))}</h3>
+      <table class="w-full bg-white text-sm rounded-b-lg shadow-sm overflow-hidden"><tbody>
+      ${prods.map(p=>{const baixo=p.minimo>0&&p.estoque<=p.minimo;return `<tr class="border-b border-slate-50 ${baixo?'bg-rose-50':''}">
+        <td class="py-2 px-3">${p.nome} ${baixo?'<span class="text-rose-600 text-[10px]">⚠ repor</span>':''}</td>
+        <td class="text-center font-bold ${p.estoque<0?'text-rose-600':''} w-16">${fmt(p.estoque)}</td>
+        <td class="text-center w-40"><input id="e-${p.id}" type="number" inputmode="decimal" placeholder="qtd" class="w-14 border rounded px-1 py-0.5 text-center" />
+          <button onclick="entrada(${p.id})" class="bg-emerald-600 text-white rounded px-2 py-0.5 text-xs">+Ent</button>
+          <button onclick="ajuste(${p.id})" class="bg-slate-500 text-white rounded px-2 py-0.5 text-xs">Aj</button></td></tr>`;}).join("")}
+      </tbody></table></div>`).join("");
+}
+function entrada(pid){const q=numv(document.getElementById("e-"+pid).value);if(q<=0){toast("Digite a quantidade.","bg-amber-600");return;}
+  const p=DB.produtos.find(x=>x.id===pid);p.estoque=+(p.estoque+q).toFixed(3);salvar();toast(`➕ ${p.nome}: ${fmt(p.estoque)}`,"bg-emerald-600");renderEstoque();}
+function ajuste(pid){const p=DB.produtos.find(x=>x.id===pid);const v=prompt(`Estoque exato de "${p.nome}":`,p.estoque);if(v===null)return;p.estoque=numv(v);salvar();toast(`✏️ ${p.nome} = ${fmt(p.estoque)}`,"bg-slate-700");renderEstoque();}
+
+/* ---------- CADASTRO ---------- */
+function renderCadastro(){
+  document.getElementById("nomeEmpresa").value=DB.nomeEmpresa||"";
+  // categorias
+  document.getElementById("listaCats").innerHTML = DB.categorias.length
+    ? DB.categorias.map(c=>`<div class="flex items-center gap-2 text-sm">
+        <span class="flex-1">${c.nome} <span class="text-slate-400 text-xs">(${DB.produtos.filter(p=>p.catId===c.id).length})</span></span>
+        <button onclick="renCategoria(${c.id})" class="text-indigo-600 text-xs">renomear</button>
+        <button onclick="delCategoria(${c.id})" class="text-rose-600 text-xs">excluir</button></div>`).join("")
+    : `<p class="text-slate-400 text-xs">Nenhuma categoria.</p>`;
+  // select de categoria no form de produto
+  document.getElementById("prodCat").innerHTML = DB.categorias.length
+    ? DB.categorias.map(c=>`<option value="${c.id}">${c.nome}</option>`).join("")
+    : `<option value="">(crie uma categoria)</option>`;
+  renderCadProdutos();
+}
+function renderCadProdutos(){
+  const termo=(document.getElementById("buscaCad").value||"").trim().toLowerCase();
+  const lista=produtosOrdenados().filter(p=>!termo||p.nome.toLowerCase().includes(termo));
+  document.getElementById("listaCadProd").innerHTML = lista.length
+    ? lista.map(p=>`<div class="flex items-center gap-2 py-2 text-sm">
+        <span class="flex-1">${p.nome}<br><span class="text-[11px] text-slate-400">${catNome(p.catId)} · estoque ${fmt(p.estoque)} · mín ${fmt(p.minimo)}</span></span>
+        <button onclick="editProduto(${p.id})" class="text-indigo-600 text-xs">editar</button>
+        <button onclick="delProduto(${p.id})" class="text-rose-600 text-xs">excluir</button></div>`).join("")
+    : `<p class="text-slate-400 text-xs py-2">Nenhum produto.</p>`;
+}
+function salvarNome(){DB.nomeEmpresa=document.getElementById("nomeEmpresa").value.trim()||"Supri";salvar();document.getElementById("hdrNome").textContent=DB.nomeEmpresa;toast("Nome salvo.","bg-emerald-600");}
+function addCategoria(){const n=document.getElementById("novaCat").value.trim();if(!n)return;
+  if(DB.categorias.some(c=>c.nome.toLowerCase()===n.toLowerCase())){toast("Categoria já existe.","bg-amber-600");return;}
+  DB.categorias.push({id:uid(),nome:n});salvar();document.getElementById("novaCat").value="";renderCadastro();}
+function renCategoria(id){const c=DB.categorias.find(x=>x.id===id);const n=prompt("Novo nome da categoria:",c.nome);if(!n)return;c.nome=n.trim();salvar();renderCadastro();}
+function delCategoria(id){
+  if(DB.produtos.some(p=>p.catId===id)){toast("Remova/mova os produtos desta categoria antes.","bg-amber-600");return;}
+  if(!confirm("Excluir categoria?"))return;
+  DB.categorias=DB.categorias.filter(c=>c.id!==id);salvar();renderCadastro();}
+function addProduto(){
+  const nome=document.getElementById("prodNome").value.trim();
+  const catId=Number(document.getElementById("prodCat").value);
+  if(!nome){toast("Digite o nome do produto.","bg-amber-600");return;}
+  if(!catId){toast("Crie/escolha uma categoria.","bg-amber-600");return;}
+  DB.produtos.push({id:uid(),catId,nome,estoque:numv(document.getElementById("prodEst").value),minimo:numv(document.getElementById("prodMin").value)});
+  salvar();
+  document.getElementById("prodNome").value="";document.getElementById("prodEst").value="";document.getElementById("prodMin").value="";
+  toast("Produto adicionado.","bg-emerald-600");renderCadastro();
+}
+function editProduto(id){
+  const p=DB.produtos.find(x=>x.id===id);
+  const nome=prompt("Nome do produto:",p.nome);if(nome===null)return;
+  const est=prompt("Estoque atual:",p.estoque);if(est===null)return;
+  const min=prompt("Estoque mínimo:",p.minimo);if(min===null)return;
+  p.nome=nome.trim()||p.nome;p.estoque=numv(est);p.minimo=numv(min);salvar();renderCadastro();toast("Produto atualizado.","bg-emerald-600");
+}
+function delProduto(id){if(!confirm("Excluir produto?"))return;DB.produtos=DB.produtos.filter(p=>p.id!==id);salvar();renderCadastro();}
+
+/* ---------- dados / backup ---------- */
+function exportar(){
+  const blob=new Blob([JSON.stringify(DB,null,2)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);
+  a.download="estoque-backup-"+new Date().toISOString().slice(0,10)+".json";a.click();
+  toast("Backup exportado.","bg-emerald-600");
+}
+function importar(ev){
+  const f=ev.target.files[0];if(!f)return;const r=new FileReader();
+  r.onload=()=>{try{const d=JSON.parse(r.result);if(!d.produtos||!d.categorias)throw 0;
+    if(!confirm("Substituir os dados atuais pelo backup?"))return;DB=d;DB.seq=DB.seq||1;salvar();aplicarNome();mostrarAba("cadastro");toast("Backup importado.","bg-emerald-600");}
+    catch(e){toast("Arquivo inválido.","bg-rose-600");}};
+  r.readAsText(f);ev.target.value="";
+}
+function carregarExemplo(){
+  if(DB.produtos.length&&!confirm("Isto adiciona os itens de exemplo. Continuar?"))return;
+  for(const [cat,itens] of Object.entries(EXEMPLO)){
+    let c=DB.categorias.find(x=>x.nome===cat); if(!c){c={id:uid(),nome:cat};DB.categorias.push(c);}
+    itens.forEach(nome=>{if(!DB.produtos.some(p=>p.catId===c.id&&p.nome===nome))DB.produtos.push({id:uid(),catId:c.id,nome,estoque:0,minimo:0});});
+  }
+  salvar();renderCadastro();toast("Itens de exemplo carregados.","bg-emerald-600");
+}
+function limparTudo(){if(!confirm("Apagar TODOS os dados deste aparelho? (faça backup antes)"))return;DB=estadoVazio();salvar();aplicarNome();mostrarAba("cadastro");toast("Tudo apagado.","bg-slate-700");}
+
+/* ---------- IMPRESSÃO ---------- */
+function abrirImpressao(titulo,corpo){
+  const w=window.open("","_blank");if(!w){toast("Permita pop-ups para imprimir.","bg-amber-600");return;}
+  const q=new Date().toLocaleString("pt-BR");
+  w.document.write(`<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><title>${titulo}</title><style>
+    *{font-family:Arial,Helvetica,sans-serif;box-sizing:border-box}body{margin:22px;color:#111}
+    h1{font-size:18px;margin:0}.sub{color:#555;font-size:12px;margin:2px 0 10px}
+    .cab{font-size:12px;margin:8px 0 4px}.cab b{display:inline-block;min-width:95px}
+    table{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px}
+    th,td{border:1px solid #999;padding:4px 6px}th{background:#eee;text-align:left}
+    td.n,th.n{text-align:center;width:58px}td.b{background:#fafafa}
+    h2.cat{font-size:12px;background:#333;color:#fff;padding:4px 8px;margin:14px 0 0}
+    .ass{margin-top:46px;display:flex;gap:40px}.ass div{flex:1;border-top:1px solid #333;padding-top:4px;font-size:11px;text-align:center}
+    .noprint{margin-bottom:12px}.btnp{padding:8px 16px;font-size:14px;cursor:pointer}@media print{.noprint{display:none}}
+    </style></head><body><div class="noprint"><button class="btnp" onclick="window.print()">🖨️ Imprimir</button>
+    &nbsp;<button class="btnp" onclick="window.close()">Fechar</button></div>
+    <h1>${DB.nomeEmpresa||"Supri"}</h1><div class="sub">${titulo} · ${q}</div>${corpo}</body></html>`);
+  w.document.close();w.focus();setTimeout(()=>{try{w.print()}catch(e){}},400);
+}
+function cabReq(data,m,t){return `<div class="cab"><b>Data:</b> ${data||"____/____/____"}</div>
+  <div class="cab"><b>Resp. Manhã:</b> ${m||"__________"} &nbsp;&nbsp;<b>Resp. Tarde:</b> ${t||"__________"}</div>`;}
+function assin(){return `<div class="ass"><div>Responsável Manhã</div><div>Responsável Tarde</div><div>Conferente</div></div>`;}
+function corpoPorCat(itens,getLinha,cabecalho){
+  const g={};itens.forEach(it=>{const p=DB.produtos.find(x=>x.id===(it.pid??it.id));const cid=p?p.catId:0;(g[cid]=g[cid]||[]).push({it,p});});
+  let c="";for(const [cid,arr] of Object.entries(g)){c+=`<h2 class="cat">${catNome(Number(cid))}</h2><table>${cabecalho}<tbody>${arr.map(getLinha).join("")}</tbody></table>`;}
+  return c;
+}
+function imprimirReq(){
+  const itens=coletarReq();if(!itens.length){toast("Preencha itens antes de imprimir.","bg-amber-600");return;}
+  const corpo=cabReq(document.getElementById("data").value,document.getElementById("respManha").value,document.getElementById("respTarde").value)+
+    corpoPorCat(itens,({it,p})=>`<tr><td>${p?p.nome:"?"}</td><td class="n">${fmt(it.est)}</td><td class="n">${fmt(it.m)}</td><td class="n">${fmt(it.t)}</td></tr>`,
+      `<thead><tr><th>Item</th><th class="n">Est.</th><th class="n">M</th><th class="n">T</th></tr></thead>`)+assin();
+  abrirImpressao("Requisição",corpo);
+}
+function imprimirReqPainel(id){
+  const req=DB.requisicoes.find(r=>r.id===id);if(!req)return;
+  const done=req.status==="consolidada";
+  const corpo=`<div class="cab"><b>Requisição:</b> #${req.id} (${done?"consolidada":"pendente"})</div>`+
+    cabReq(req.data,req.respM,req.respT)+
+    corpoPorCat(req.itens,({it,p})=>{const c=it.m+it.t;return `<tr><td>${p?p.nome:"(removido)"}</td><td class="n">${fmt(it.est)}</td><td class="n">${fmt(it.m)}</td><td class="n">${fmt(it.t)}</td><td class="n"><b>${fmt(c)}</b></td><td class="n">${p?fmt(p.estoque)+"→"+fmt(p.estoque-(done?0:c)):"—"}</td></tr>`;},
+      `<thead><tr><th>Item</th><th class="n">Est.</th><th class="n">M</th><th class="n">T</th><th class="n">M+T</th><th class="n">Estoque</th></tr></thead>`)+assin();
+  abrirImpressao("Guia de Separação / Baixa",corpo);
+}
+function imprimirEstoque(){
+  if(!DB.produtos.length){toast("Sem produtos.","bg-amber-600");return;}
+  const corpo=`<div class="cab">Coluna <b>Contagem física</b> para o inventário.</div>`+
+    corpoPorCat(produtosOrdenados(),({p})=>`<tr><td>${p.nome}</td><td class="n">${fmt(p.estoque)}</td><td class="n b">&nbsp;</td></tr>`,
+      `<thead><tr><th>Produto</th><th class="n">Sistema</th><th class="n">Contagem física</th></tr></thead>`);
+  abrirImpressao("Relatório de Estoque / Contagem",corpo);
+}
+
+/* ---------- PWA install ---------- */
+window.addEventListener("beforeinstallprompt",(e)=>{e.preventDefault();deferredPrompt=e;document.getElementById("btnInstalar").classList.remove("hidden");});
+function instalarPrompt(){if(!deferredPrompt){toast("Use o menu do navegador → Instalar app / Adicionar à tela inicial.","bg-slate-700");return;}deferredPrompt.prompt();deferredPrompt=null;document.getElementById("btnInstalar").classList.add("hidden");}
+window.addEventListener("appinstalled",()=>{document.getElementById("btnInstalar").classList.add("hidden");toast("App instalado!","bg-emerald-600");});
+
+/* ---------- init ---------- */
+function aplicarNome(){document.getElementById("hdrNome").textContent=DB.nomeEmpresa||"Supri";}
+(function init(){
+  document.getElementById("data").value=new Date().toISOString().slice(0,10);
+  aplicarNome();
+  document.querySelectorAll(".tabbtn").forEach(b=>b.addEventListener("click",()=>mostrarAba(b.dataset.tab)));
+  mostrarAba("req");
+  if("serviceWorker" in navigator && window.isSecureContext){navigator.serviceWorker.register("sw.js").catch(()=>{});}
+})();
+</script>
+</body>
+</html>
