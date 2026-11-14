@@ -15,15 +15,35 @@ clínicas, oficinas, eventos) — é só cadastrar as categorias e itens do seu 
 
 - **Requisição diária** por categoria, com os campos **Est.** (estoque conferido),
   **M** (manhã) e **T** (tarde).
-- **Baixa automática**: ao consolidar, o consumo (M + T) é descontado do estoque.
+- **Requisição por arquivo**: o celular **exporta** a requisição (`.json`) e envia
+  por WhatsApp/e-mail; o PC **importa** o arquivo — não precisa estar na mesma rede.
+- **Baixa automática** no estoque geral: ao dar baixa, o consumo (M + T) é descontado.
 - **Estoque geral** com entrada/reposição, ajuste de inventário e alerta de mínimo.
+- **Relatório e histórico**: toda entrada e saída fica registrada com data/hora;
+  veja por período, com **resumo por produto** (quanto entrou/saiu de cada item),
+  imprima, ou **exporte em CSV** para abrir no Excel.
 - **Cadastro** próprio de categorias e produtos (adicionar, editar, excluir).
-- **Impressão** da requisição, da guia de separação e da folha de contagem (ou salvar em PDF).
-- **Backup**: exportar/importar os dados em arquivo `.json`.
+- **Impressão** da requisição, da guia de separação, da contagem e do relatório (ou PDF).
+- **Backup**: exportar/importar todos os dados em arquivo `.json`.
 - **Funciona offline** e **instala no celular** como aplicativo.
 
-> Já vem com um catálogo de exemplo carregado (128 itens em 4 categorias). Para
+> Já vem com o catálogo Sushi Rio 2026 carregado (128 itens em 4 categorias). Para
 > começar do zero, use **Cadastro → Apagar tudo** e cadastre os seus itens.
+
+## 🔄 Como funciona (celular × PC)
+
+1. **Celular (colaborador):** abre o app, preenche a requisição (Est./M/T) e toca
+   em **Salvar**. Em **Recebidas**, abre a requisição e toca em **📤 Enviar** para
+   gerar o arquivo e mandar para você (WhatsApp, e-mail etc.). Funciona mesmo em
+   outra rede ou nos dados móveis.
+2. **PC (estoque geral):** mantém o estoque atualizado no dia a dia. Em **Recebidas**,
+   toca em **📥 Importar requisição (arquivo)**, escolhe o arquivo recebido, confere
+   e toca em **⬇️ Dar baixa** — o consumo é descontado do estoque central.
+3. **Relatório:** consulte em **📊 Relatório** o que entrou e saiu no período, com
+   histórico completo; imprima ou salve em PDF.
+
+> Cada aparelho guarda os próprios dados. O PC é quem mantém o **estoque geral**
+> (a baixa acontece nele). O celular serve para montar e enviar a requisição.
 
 ---
 
