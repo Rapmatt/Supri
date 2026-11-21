@@ -41,6 +41,9 @@ clínicas, oficinas, eventos) — é só cadastrar as categorias e itens do seu 
 - Cada requisição grava **data e horário** do ato e pode ser **enviada por arquivo** (celular → PC) e **impressa**.
 - _Em construção (Bloco C):_ Importar XML (NF‑e) / Excel / PDF.
 
+### v1.8
+- **NF‑e: categoria por produto.** Na prévia da importação, cada produto tem um **seletor com todas as categorias** (+ "nova categoria" e "ignorar"), para você colocar cada item no lugar certo. Produto já existente é movido se você trocar a categoria.
+
 ### v1.7
 - **Importar Excel (.xlsx)** de verdade (lê a primeira aba), além de CSV e NF‑e (XML). PDF fica para depois.
 
