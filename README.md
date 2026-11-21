@@ -41,6 +41,10 @@ clínicas, oficinas, eventos) — é só cadastrar as categorias e itens do seu 
 - Cada requisição grava **data e horário** do ato e pode ser **enviada por arquivo** (celular → PC) e **impressa**.
 - _Em construção (Bloco C):_ Importar XML (NF‑e) / Excel / PDF.
 
+### v2.1
+- **Un/Pack na Requisição Bebidas:** itens em pack (cervejas etc.) têm um seletor **Un/Pack** no campo — peça 1 pack completo (ex.: 24un) ou fracionado (ex.: 15un); a baixa converte certinho (15un = 0,625 pack).
+- **LICOR CASSIS** corrigido: era lido como seção, voltou a ser item na seção LICOR (Requisição e Contagem).
+
 ### v2.0
 - **Bebidas alinhadas:** os 8 nomes divergentes da Requisição Bebidas passaram a usar o nome padrão da lista (ex.: CHIVAS REGAL → WHISKY CHIVAS REGAL; cafés → _pack 50un), casando com a Contagem para a baixa.
 
