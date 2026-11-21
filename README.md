@@ -2,6 +2,8 @@
 
 **Abasteça sem adivinhação.**
 
+_Desenvolvido por Raphael Silveira._
+
 App de **controle de estoque e requisições diárias** que roda 100% no navegador —
 funciona **offline**, guarda os dados **no próprio aparelho** e pode ser
 **instalado como app** no celular (PWA), sem loja de aplicativos e sem servidor.
@@ -26,6 +28,13 @@ clínicas, oficinas, eventos) — é só cadastrar as categorias e itens do seu 
 - **Impressão** da requisição, da guia de separação, da contagem e do relatório (ou PDF).
 - **Backup**: exportar/importar todos os dados em arquivo `.json`.
 - **Funciona offline** e **instala no celular** como aplicativo.
+
+### Novidades (Bloco A)
+- **Tela inicial** com cada função em seu próprio cartão (sem telas poluídas).
+- **Senha de acesso** (padrão `supri9832`, trocável em Cadastro/Configurações) nas abas restritas: Contagens, Estoque, Relatório, Importar, Recebidas e Cadastro.
+- **Contagem** (Bebidas, Secos, Mat. Limpeza) com Ideal/Contagem/**Pedido** (= Ideal − Contagem) e **unidade** por item; botão **Lançar no estoque G4** (marco inicial).
+- **Contagem Vinhos** com **G3 / G4 / Total**: o BAR preenche só o G3; o **G4** é liberado só pelo admin; o Total soma os dois.
+- _Em construção (próximos blocos):_ Requisição Bebidas/Vinhos (Dia/Noite) e Importar XML/Excel/PDF.
 
 > Já vem com o catálogo Sushi Rio 2026 carregado (128 itens em 4 categorias). Para
 > começar do zero, use **Cadastro → Apagar tudo** e cadastre os seus itens.
