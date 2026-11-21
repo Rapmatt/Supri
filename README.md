@@ -41,6 +41,10 @@ clínicas, oficinas, eventos) — é só cadastrar as categorias e itens do seu 
 - Cada requisição grava **data e horário** do ato e pode ser **enviada por arquivo** (celular → PC) e **impressa**.
 - _Em construção (Bloco C):_ Importar XML (NF‑e) / Excel / PDF.
 
+### v1.4
+- **Vinhos unificados**: a Requisição Vinhos e a Contagem Vinhos usam a **mesma lista** (104 vinhos, união das duas) — uma completa a outra.
+- **Ocultar / re-exibir** vinho (🙈 / ↩): sai das duas telas e volta quando quiser; fica salvo no aparelho.
+
 ### v1.3
 - Versão visível na tela inicial; cada pacote de release vai numerado.
 - Nomenclatura das **bebidas** com o **pack** no nome (ex.: `COCA NORMAL 350ML_pack 12un`) e **fator** (un por pack) guardado — a Contagem Bebidas mostra o **Total em unidades**.
