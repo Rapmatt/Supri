@@ -41,6 +41,11 @@ clínicas, oficinas, eventos) — é só cadastrar as categorias e itens do seu 
 - Cada requisição grava **data e horário** do ato e pode ser **enviada por arquivo** (celular → PC) e **impressa**.
 - _Em construção (Bloco C):_ Importar XML (NF‑e) / Excel / PDF.
 
+### v1.5 (Bloco C — Importar)
+- **Importar NF‑e (XML)** do fornecedor: lê os produtos da nota e lança **entrada** no estoque G4 (cria os novos na categoria escolhida; guarda o valor unitário).
+- **Importar planilha (CSV)**: colunas nome, categoria, quantidade, unidade → entrada no G4.
+- _Próximo:_ Excel (.xlsx) e PDF.
+
 ### v1.4
 - **Vinhos unificados**: a Requisição Vinhos e a Contagem Vinhos usam a **mesma lista** (104 vinhos, união das duas) — uma completa a outra.
 - **Ocultar / re-exibir** vinho (🙈 / ↩): sai das duas telas e volta quando quiser; fica salvo no aparelho.
