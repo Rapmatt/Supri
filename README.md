@@ -34,7 +34,12 @@ clínicas, oficinas, eventos) — é só cadastrar as categorias e itens do seu 
 - **Senha de acesso** (padrão `supri9832`, trocável em Cadastro/Configurações) nas abas restritas: Contagens, Estoque, Relatório, Importar, Recebidas e Cadastro.
 - **Contagem** (Bebidas, Secos, Mat. Limpeza) com Ideal/Contagem/**Pedido** (= Ideal − Contagem) e **unidade** por item; botão **Lançar no estoque G4** (marco inicial).
 - **Contagem Vinhos** com **G3 / G4 / Total**: o BAR preenche só o G3; o **G4** é liberado só pelo admin; o Total soma os dois.
-- _Em construção (próximos blocos):_ Requisição Bebidas/Vinhos (Dia/Noite) e Importar XML/Excel/PDF.
+
+### Novidades (Bloco B)
+- **Requisição Bebidas (Bar)** e **Requisição Vinhos/Espumantes** com turnos **Dia/Noite** e campo de **Observação**, organizadas por seção.
+- A **baixa (Dia + Noite)** acontece no estoque **G4** ao dar baixa em Recebidas; os produtos são criados no banco automaticamente.
+- Cada requisição grava **data e horário** do ato e pode ser **enviada por arquivo** (celular → PC) e **impressa**.
+- _Em construção (Bloco C):_ Importar XML (NF‑e) / Excel / PDF.
 
 > Já vem com o catálogo Sushi Rio 2026 carregado (128 itens em 4 categorias). Para
 > começar do zero, use **Cadastro → Apagar tudo** e cadastre os seus itens.
