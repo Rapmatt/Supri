@@ -41,6 +41,10 @@ clínicas, oficinas, eventos) — é só cadastrar as categorias e itens do seu 
 - Cada requisição grava **data e horário** do ato e pode ser **enviada por arquivo** (celular → PC) e **impressa**.
 - _Em construção (Bloco C):_ Importar XML (NF‑e) / Excel / PDF.
 
+### v1.3
+- Versão visível na tela inicial; cada pacote de release vai numerado.
+- Nomenclatura das **bebidas** com o **pack** no nome (ex.: `COCA NORMAL 350ML_pack 12un`) e **fator** (un por pack) guardado — a Contagem Bebidas mostra o **Total em unidades**.
+
 > Já vem com o catálogo Sushi Rio 2026 carregado (128 itens em 4 categorias). Para
 > começar do zero, use **Cadastro → Apagar tudo** e cadastre os seus itens.
 
