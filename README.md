@@ -41,6 +41,9 @@ clínicas, oficinas, eventos) — é só cadastrar as categorias e itens do seu 
 - Cada requisição grava **data e horário** do ato e pode ser **enviada por arquivo** (celular → PC) e **impressa**.
 - _Em construção (Bloco C):_ Importar XML (NF‑e) / Excel / PDF.
 
+### v2.0
+- **Bebidas alinhadas:** os 8 nomes divergentes da Requisição Bebidas passaram a usar o nome padrão da lista (ex.: CHIVAS REGAL → WHISKY CHIVAS REGAL; cafés → _pack 50un), casando com a Contagem para a baixa.
+
 ### v1.9
 - **Secos e Limpeza** com nomenclatura + **fator** (un por pack) aplicados: 16 itens de Secos em pack (açúcar, sal, arroz…) mostram **Total un** na contagem; Limpeza é avulso.
 
