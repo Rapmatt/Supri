@@ -41,6 +41,9 @@ clínicas, oficinas, eventos) — é só cadastrar as categorias e itens do seu 
 - Cada requisição grava **data e horário** do ato e pode ser **enviada por arquivo** (celular → PC) e **impressa**.
 - _Em construção (Bloco C):_ Importar XML (NF‑e) / Excel / PDF.
 
+### v1.7
+- **Importar Excel (.xlsx)** de verdade (lê a primeira aba), além de CSV e NF‑e (XML). PDF fica para depois.
+
 ### v1.6 (Auditoria)
 - **Registro de atividades** (admin, em Cadastro/Configurações): grava **acessos** ao app e todas as ações — impressões, requisições salvas/enviadas/exportadas/importadas, **baixas**, contagens, importações (NF‑e/CSV) e **alterações de cadastro** (produtos, categorias, senha), cada uma com **data e hora**. Filtro por dia, impressão e inclusão no backup.
 
