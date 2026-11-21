@@ -830,7 +830,13 @@ function aplicarNome(){document.getElementById("hdrNome").textContent=DB.nomeEmp
   document.getElementById("data").value=new Date().toISOString().slice(0,10);
   aplicarNome();
   mostrarAba("home");
-  if("serviceWorker" in navigator && window.isSecureContext){navigator.serviceWorker.register("sw.js").catch(()=>{});}
+  /*__SW__*/
+  if("serviceWorker" in navigator && window.isSecureContext){
+    navigator.serviceWorker.register("sw.js").then(function(reg){ try{reg.update();}catch(e){} }).catch(function(){});
+    var _recarregou=false;
+    navigator.serviceWorker.addEventListener("controllerchange",function(){ if(_recarregou)return; _recarregou=true; location.reload(); });
+  }
+  /*__/SW__*/
 })();
 </script>
 </body>
