@@ -12,3 +12,12 @@
 .p-5{padding:1.25rem}
 .shadow-xl{box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1)}
 .max-h-\[90vh\]{max-height:90vh}
+
+/* --- utilitários usados nas exclusões/marco zero (v4.4) --- */
+.ml-2{margin-left:.5rem}
+.bg-indigo-50{background-color:#eef2ff}
+.bg-indigo-100{background-color:#e0e7ff}
+.ring-2{box-shadow:0 0 0 2px #818cf8}
+.ring-indigo-400{box-shadow:0 0 0 2px #818cf8}
+.hover\:text-rose-600:hover{color:#e11d48}
+.hover\:text-indigo-600:hover{color:#4f46e5}
