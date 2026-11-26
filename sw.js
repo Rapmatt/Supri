@@ -1,7 +1,7 @@
 /* Service worker do Supri — estratégia REDE PRIMEIRO.
    Sempre busca a versão nova quando online (assim o app atualiza),
    e cai para o cache só quando estiver offline. */
-const CACHE = "supri-v30";
+const CACHE = "supri-v31";
 const SHELL = ["./", "index.html", "manifest.webmanifest", "icon-192.png", "pdf.min.js", "pdf.worker.min.js"];
 
 self.addEventListener("install", (e) => {
