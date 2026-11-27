@@ -443,30 +443,35 @@ function sugerirPorNome(desc){
   });
   return best?{prod:best,score:+bsc.toFixed(2)}:null;
 }
-// de-para aprendido: casa por CNPJ do fornecedor + código do produto (à prova de mudança de nome); fallback por nome normalizado
+// de-para aprendido: casa por CNPJ do fornecedor + código do produto (à prova de mudança de nome); fallback por nome normalizado.
+// Valor memorizado: {id: produtoId, un: unidade de lançamento}. (Compat: valor antigo era só o id numérico.)
 function buscarDePara(cnpj,codigo,nome){
-  const m=DB.deParaNF||{}; let pid=null;
-  if(cnpj&&codigo && m[cnpj+"::"+codigo]!=null) pid=m[cnpj+"::"+codigo];
-  else if(nome && m["nome::"+normNF(nome)]!=null) pid=m["nome::"+normNF(nome)];
-  if(pid==null)return null;
-  return (DB.produtos||[]).find(x=>String(x.id)===String(pid))||null;
+  const m=DB.deParaNF||{}; let v=null;
+  if(cnpj&&codigo && m[cnpj+"::"+codigo]!=null) v=m[cnpj+"::"+codigo];
+  else if(nome && m["nome::"+normNF(nome)]!=null) v=m["nome::"+normNF(nome)];
+  if(v==null)return null;
+  const pid=(typeof v==="object"&&v)?v.id:v, un=(typeof v==="object"&&v)?v.un:null;
+  const p=(DB.produtos||[]).find(x=>String(x.id)===String(pid)); if(!p)return null;
+  return {prod:p, un:un||null};
 }
-function aprenderDePara(cnpj,codigo,nome,pid){
-  DB.deParaNF=DB.deParaNF||{};
-  if(cnpj&&codigo) DB.deParaNF[cnpj+"::"+codigo]=pid;
-  if(nome) DB.deParaNF["nome::"+normNF(nome)]=pid;
+function aprenderDePara(cnpj,codigo,nome,pid,un){
+  DB.deParaNF=DB.deParaNF||{}; const val={id:pid,un:un||null};
+  if(cnpj&&codigo) DB.deParaNF[cnpj+"::"+codigo]=val;
+  if(nome) DB.deParaNF["nome::"+normNF(nome)]=val;
 }
-// sugestão final p/ um item de NF: de-para primeiro (travado), senão palpite por nome
+// sugestão final p/ um item de NF: de-para primeiro (travado, com unidade lembrada), senão palpite por nome
 function sugerirProdutoNF(it,cnpj){
-  const dp=buscarDePara(cnpj,it.codigo,it.nome); if(dp)return {prod:dp,fonte:"depara"};
-  const pa=sugerirPorNome(it.nome); if(pa)return {prod:pa.prod,fonte:"palpite",score:pa.score};
+  const dp=buscarDePara(cnpj,it.codigo,it.nome); if(dp)return {prod:dp.prod,un:dp.un,fonte:"depara"};
+  const pa=sugerirPorNome(it.nome); if(pa)return {prod:pa.prod,un:null,fonte:"palpite",score:pa.score};
   return null;
 }
-// converte a quantidade da NF para a unidade-base de um produto JÁ escolhido
-function converteEntradaProd(p,qtdBruta,unBruta){
-  const fator=p.fator||1, unidade=p.unidade||"UN";
-  if(fator>1 && unEhUnidadeAvulsa(unBruta)) return {qtd:+(qtdBruta/fator).toFixed(4),unidade,convertido:true,fator};
-  return {qtd:qtdBruta,unidade,convertido:false,fator};
+// adiciona/atualiza uma unidade de contagem no produto (replica p/ Cadastro, Contagem e G4)
+function setUnidadeProduto(p,nome,fator){
+  nome=String(nome||"").trim().toUpperCase(); fator=+fator;
+  if(!nome || !(fator>0) || nome===String(p.unidade||"UN").toUpperCase()) return;
+  p.unidades=Array.isArray(p.unidades)?p.unidades:[];
+  const ex=p.unidades.find(u=>String(u.nome).toUpperCase()===nome);
+  if(ex) ex.fator=fator; else p.unidades.push({nome,fator});
 }
 // ---- unidades de medida (seletor) e conversão por produto ----
 const UNIDADES_LISTA=["KG","G","L","ML","UN","DÚZIA","PACOTE","FARDO","CAIXA","LATA","GARRAFA","GALÃO","BALDE","BB","SACO","ROLO","POTE","BANDEJA","SACHÊ","PACK","CX","PCT","LITRO"];
@@ -2128,22 +2133,60 @@ function celTipoEst(selVal,idx){
   if(selVal&&selVal[0]==="p"){ const p=DB.produtos.find(x=>"p"+x.id===selVal); return p?`<span class="text-slate-500">${catNome(p.catId)}</span>`:'<span class="text-slate-300">—</span>'; }
   return '<span class="text-slate-300">—</span>';
 }
+function impSelProd(idx){ const s=document.querySelector(`select[data-param="${idx}"]`); const v=s?s.value:""; return (v&&v[0]==="p")?DB.produtos.find(x=>"p"+x.id===v):null; }
+// célula "Qtd / unidade" da linha: dropdown de unidade do produto + fator editável + total base ao vivo
+function celEntrada(idx,selVal,unSel){
+  const it=impNFeDados.itens[idx];
+  const p=(selVal&&selVal[0]==="p")?DB.produtos.find(x=>"p"+x.id===selVal):null;
+  if(!p){ // sem produto escolhido (extra/novo): entra na unidade da própria NF
+    return `<div class="text-xs font-semibold">${fmtBR(it.qtd)} <span class="text-slate-400 font-normal">${it.un||'UN'}</span></div>`;
+  }
+  const uns=unidadesDe(p), base=p.unidade||"UN";
+  const sel=unSel||(uns[0]&&uns[0].nome)||base;
+  let opts=uns.map(u=>`<option value="${u.nome}"${u.nome===sel?' selected':''}>${u.nome}${u.fator>1?' (×'+fmtBR(u.fator)+')':''}</option>`).join("");
+  opts+=`<option value="__NOVA_UN__"${sel==="__NOVA_UN__"?' selected':''}>➕ nova unidade…</option>`;
+  const ehNova=sel==="__NOVA_UN__", ehBase=sel===base;
+  const fatSel=ehNova?0:(ehBase?1:fatorUnidade(p,sel));
+  const contem= ehBase?'':`<div class="flex items-center gap-1 mt-0.5 justify-center">${ehNova?`<input data-impunnome="${idx}" placeholder="nome" oninput="recalcImp(${idx})" class="w-12 border border-slate-200 rounded px-1 py-0.5 text-[10px]" />`:''}<span class="text-[9px] text-slate-400">contém</span><input data-impunfat="${idx}" value="${ehNova?'':fmtBR(fatSel)}" type="text" inputmode="decimal" oninput="recalcImp(${idx})" class="w-10 border border-slate-200 rounded px-1 py-0.5 text-[10px] text-center" /><span class="text-[9px] text-slate-400">${base}</span></div>`;
+  const base0=+(it.qtd*(fatSel||0)).toFixed(3);
+  return `<div class="text-xs font-semibold">${fmtBR(it.qtd)}</div>
+    <select data-impun="${idx}" onchange="onImpUnChange(${idx})" class="w-full border border-slate-200 rounded px-1 py-0.5 text-[11px] mt-0.5">${opts}</select>
+    ${contem}
+    <div class="text-[10px] text-emerald-700 font-semibold mt-0.5" id="impBase-${idx}">${ehNova?'defina a unidade':'= '+fmtBR(base0)+' '+base}</div>`;
+}
+function onImpUnChange(idx){
+  const sel=document.querySelector(`select[data-impun="${idx}"]`), cell=document.getElementById("entCell-"+idx);
+  const pv=document.querySelector(`select[data-param="${idx}"]`);
+  if(sel&&cell&&pv) cell.innerHTML=celEntrada(idx,pv.value,sel.value);
+}
+function recalcImp(idx){
+  const it=impNFeDados.itens[idx], p=impSelProd(idx), span=document.getElementById("impBase-"+idx); if(!p||!span)return;
+  const sel=(document.querySelector(`select[data-impun="${idx}"]`)||{}).value, base=p.unidade||"UN";
+  let fat;
+  if(!sel||sel===base) fat=1;
+  else { const fe=document.querySelector(`input[data-impunfat="${idx}"]`); fat=fe?numv(fe.value):fatorUnidade(p,sel); }
+  if(!(fat>0)){ span.textContent="defina a unidade"; return; }
+  span.textContent="= "+fmtBR(+(it.qtd*fat).toFixed(3))+" "+base;
+}
 function onParamChange(idx){
-  const sel=document.querySelector(`select[data-param="${idx}"]`), cell=document.getElementById("tipoEst-"+idx);
+  const sel=document.querySelector(`select[data-param="${idx}"]`);
+  const cell=document.getElementById("tipoEst-"+idx), ent=document.getElementById("entCell-"+idx);
   if(sel&&cell) cell.innerHTML=celTipoEst(sel.value,idx);
+  if(sel&&ent) ent.innerHTML=celEntrada(idx,sel.value,null);
 }
 function renderImpPreview(){
   const d=impNFeDados; if(!d)return;
   const linhas=d.itens.map((it,idx)=>{
     const sug=sugerirProdutoNF(it,d.cnpj);
     const selVal=sug?("p"+sug.prod.id):"";
+    const unSel=sug?sug.un:null;
     const badge=sug?(sug.fonte==="depara"
         ?'<span class="text-emerald-600 text-[10px]">🔗 memorizado</span>'
         :`<span class="text-indigo-500 text-[10px]">💡 palpite</span>`)
       :'<span class="text-amber-600 text-[10px]">⚠ escolher</span>';
     return `<tr class="border-b border-slate-50 align-top">
-      <td class="py-1 px-2 text-xs">${it.nome}${it.codigo?`<br><span class="text-slate-300 text-[10px]">cód ${it.codigo}</span>`:''} ${badge}</td>
-      <td class="text-center text-xs">${fmtBR(it.qtd)}<br><span class="text-[9px] text-slate-400">${it.un}${it.preco?' · R$ '+fmt(it.preco):''}</span></td>
+      <td class="py-1 px-2 text-xs">${it.nome}${it.codigo?`<br><span class="text-slate-300 text-[10px]">cód ${it.codigo}</span>`:''} ${badge}${it.preco?`<br><span class="text-slate-300 text-[10px]">R$ ${fmt(it.preco)}</span>`:''}</td>
+      <td class="px-1 text-center" id="entCell-${idx}">${celEntrada(idx,selVal,unSel)}</td>
       <td class="px-1"><select data-param="${idx}" onchange="onParamChange(${idx})" class="w-full border border-slate-200 rounded-md px-1 py-1 text-xs">${opcoesParam(selVal)}</select></td>
       <td class="px-1 text-center text-[11px]" id="tipoEst-${idx}">${celTipoEst(selVal,idx)}</td></tr>`;
   }).join("");
@@ -2158,9 +2201,9 @@ function renderImpPreview(){
         <input id="impDataEntrada" type="date" value="${new Date().toISOString().slice(0,10)}" class="border border-slate-300 rounded-lg px-2 py-1" />
         ${d.dataNF?`<span class="text-slate-400">· emissão da NF: ${new Date(d.dataNF).toLocaleDateString("pt-BR")}</span>`:''}
       </div>
-      <p class="text-[11px] text-slate-400 mb-2">Em <b>Parametrizar com:</b> escolha o produto equivalente do seu cadastro (vem com um palpite 💡; 🔗 = já memorizado). Sem correspondência, use <b>➕ Adicionar ao cadastro</b> ou <b>📦 ITENS EXTRA CATÁLOGO</b>. A entrada é registrada na <b>data de entrada</b> acima.</p>
+      <p class="text-[11px] text-slate-400 mb-2">Em <b>Parametrizar com:</b> escolha o produto do seu cadastro (palpite 💡; 🔗 = memorizado) ou <b>➕ Adicionar</b> / <b>📦 Extra Catálogo</b>. Em <b>Qtd</b>, escolha a <b>unidade</b> (ex.: PACK) e confira o total convertido (<b>= N un</b>) antes de lançar. A escolha fica memorizada por fornecedor.</p>
       ${chaveDaNF(d)?'':'<p class="text-[11px] text-amber-600 mb-2">⚠ Não consegui ler o número/chave desta nota, então não dá pra checar se ela já foi importada. Confira antes de lançar.</p>'}
-      <div class="overflow-auto max-h-96"><table class="w-full text-sm"><thead class="text-left text-slate-400 text-xs border-b"><tr><th class="py-1 px-2">Item da NF</th><th class="text-center w-14">Qtd</th><th class="text-center w-40">Parametrizar com:</th><th class="text-center w-28">Tipo de estoque</th></tr></thead><tbody>${linhas}</tbody></table></div>
+      <div class="overflow-auto max-h-96"><table class="w-full text-sm"><thead class="text-left text-slate-400 text-xs border-b"><tr><th class="py-1 px-2">Item da NF</th><th class="text-center w-24">Qtd / unidade</th><th class="text-center w-36">Parametrizar com:</th><th class="text-center w-24">Tipo de estoque</th></tr></thead><tbody>${linhas}</tbody></table></div>
     </div>`;
 }
 function confirmarImportNFe(){
@@ -2184,12 +2227,26 @@ function confirmarImportNFe(){
     else if(v==="__NOVO__"){ const cs=document.querySelector(`select[data-catnovo="${idx}"]`); const cn=(cs&&cs.value)?cs.value:CAT_EXTRA_NF; p=garantirProduto(it.nome,cn,it.un||"UN"); }
     else if(v&&v[0]==="p") p=DB.produtos.find(x=>"p"+x.id===v);
     if(!p){ ign++; return; }
-    const conv=converteEntradaProd(p,it.qtd,it.un);
+    const base=p.unidade||"UN";
+    // unidade de lançamento escolhida pelo usuário (UN / PACK / FARDO…) e seu fator
+    const selUn=(document.querySelector(`select[data-impun="${idx}"]`)||{}).value||base;
+    let unNome=base, fator=1;
+    if(selUn==="__NOVA_UN__"){
+      unNome=String((document.querySelector(`input[data-impunnome="${idx}"]`)||{}).value||"").trim().toUpperCase();
+      fator=numv((document.querySelector(`input[data-impunfat="${idx}"]`)||{}).value);
+      if(unNome && fator>0){ setUnidadeProduto(p,unNome,fator); } else { unNome=base; fator=1; }
+    } else if(selUn!==base){
+      const fe=document.querySelector(`input[data-impunfat="${idx}"]`);
+      fator=fe?numv(fe.value):fatorUnidade(p,selUn);
+      if(!(fator>0)) fator=fatorUnidade(p,selUn);
+      unNome=selUn; setUnidadeProduto(p,selUn,fator);   // grava eventual ajuste do fator no produto (replica p/ Cadastro/Contagem/G4)
+    }
+    const qtdBase=+(it.qtd*fator).toFixed(3);   // entra sempre na unidade-base (ex.: 5 PACK × 12 = 60 UN)
     const antes=+p.estoque||0;
-    p.estoque=+(antes+conv.qtd).toFixed(3); if(it.preco)p.preco=it.preco;
-    logMov(p.id,"entrada",conv.qtd,p.estoque,(d.origem||"NF‑e")+" "+(d.nNF?("#"+d.nNF):"")+(d.forn?(" "+d.forn):""),tsEntrada); n++;
-    aprenderDePara(d.cnpj,it.codigo,it.nome,p.id);   // memoriza p/ próximas NFs daquele fornecedor
-    resumo.push({id:p.id,nome:p.nome,entrou:conv.qtd,unidade:(conv.unidade||p.unidade||"UN"),antes,total:p.estoque,codigo:it.codigo});
+    p.estoque=+(antes+qtdBase).toFixed(3); if(it.preco)p.preco=it.preco;
+    logMov(p.id,"entrada",qtdBase,p.estoque,(d.origem||"NF‑e")+" "+(d.nNF?("#"+d.nNF):"")+(d.forn?(" "+d.forn):"")+(fator>1?(" ("+fmtBR(it.qtd)+" "+unNome+")"):""),tsEntrada); n++;
+    aprenderDePara(d.cnpj,it.codigo,it.nome,p.id,unNome);   // memoriza produto + unidade p/ próximas NFs daquele fornecedor
+    resumo.push({id:p.id,nome:p.nome,entrou:qtdBase,unidade:base,antes,total:p.estoque,codigo:it.codigo,unEntrada:unNome,qtdNF:it.qtd,fator:fator});
   });
   if(!n){toast("Nenhum item lançado.","bg-amber-600");return;}
   registrarNFImportada(d,chaveDaNF(d),n);   // marca a NF como já importada (anti-duplicidade)
@@ -2202,7 +2259,7 @@ function renderResumoImport(resumo,meta){
   window._ultimoResumoImport={resumo,meta};
   const linhas=resumo.map((r,i)=>`<tr class="border-b border-slate-50">
     <td class="py-1 px-2 text-xs">${r.nome}</td>
-    <td class="text-center text-emerald-700 font-semibold text-xs">+${fmtBR(r.entrou)} ${r.unidade}</td>
+    <td class="text-center text-emerald-700 font-semibold text-xs">+${fmtBR(r.entrou)} ${r.unidade}${(r.fator>1)?`<br><span class="text-[9px] text-slate-400 font-normal">${fmtBR(r.qtdNF)} ${r.unEntrada} ×${fmtBR(r.fator)}</span>`:''}</td>
     <td class="text-center text-slate-400 text-xs">${fmtBR(r.antes)}</td>
     <td class="text-center whitespace-nowrap"><input data-restot="${i}" value="${fmtBR(r.total)}" type="text" inputmode="decimal" onchange="ajustarTotalImport(${i})" title="Total final em estoque (editável — corrija se faltou/sobrou item na conferência)" class="w-16 border border-slate-300 rounded px-1 py-1 text-center text-xs font-bold text-slate-800" /> <span class="text-[10px] text-slate-400">${r.unidade}</span></td></tr>`).join("");
   document.getElementById("impPreview").innerHTML=`<div class="bg-white p-3 rounded-xl shadow-sm">
